@@ -273,20 +273,8 @@ metrics:
 grafana:
   # Dashboard settings
   dashboards:
-    - name: "Git Stats - Team Overview"
-      description: "Team-wide metrics across all repositories"
-      enabled: true
-      
     - name: "Git Stats - Repository Overview"
       description: "Per-repository metrics and comparisons"
-      enabled: true
-      
-    - name: "Git Stats - Personal Overview"
-      description: "Individual contributor metrics"
-      enabled: true
-      
-    - name: "Git Stats - LOC Analysis"
-      description: "Lines of code and contributor analysis"
       enabled: true
 
 # ============================================================================
