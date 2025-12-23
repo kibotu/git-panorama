@@ -82,30 +82,12 @@ elasticsearch:
   host: "localhost"
   port: 9200
   
-  # Index names
+  # Index name for commit data
   commit_index: "git-commits"
-  tag_index: "git-tags"
-  loc_index: "git-loc"
   
   # Batch size for bulk uploads
   bulk_batch_size: 1000
 
-# ============================================================================
-# Git Tags Configuration
-# ============================================================================
-tags:
-  # Enable tag tracking
-  enabled: true
-  
-  # Regex patterns for tags to track (e.g., semver versions)
-  # Only tags matching these patterns will be indexed
-  patterns:
-    - pattern: "^v?\\d+\\.\\d+\\.\\d+$"
-      description: "Semantic versioning (e.g., v1.2.3 or 1.2.3)"
-    - pattern: "^v?\\d+\\.\\d+\\.\\d+-.*$"
-      description: "Semantic versioning with pre-release (e.g., v1.2.3-beta.1)"
-    - pattern: "^release-\\d+\\.\\d+\\.\\d+$"
-      description: "Release tags (e.g., release-1.2.3)"
 
 # ============================================================================
 # File Exclusion Rules
@@ -237,35 +219,6 @@ exclusions:
   # Repository-specific exclusion rules
   repository_specific: {}
 
-# ============================================================================
-# Metrics Configuration
-# ============================================================================
-metrics:
-  # Commit metrics
-  commits:
-    enabled: true
-    track_message: true
-    normalize_message: true  # Remove line breaks from commit messages
-    
-  # Line change metrics
-  lines:
-    enabled: true
-    track_added: true
-    track_removed: true
-    track_changed: true
-    
-  # File metrics
-  files:
-    enabled: true
-    track_count: true
-    track_types: true
-  
-  # LOC (Lines of Code) metrics
-  loc:
-    enabled: true
-    track_total_lines: true
-    track_by_language: true
-    track_contributor_count: true
 
 # ============================================================================
 # Grafana Dashboard Configuration

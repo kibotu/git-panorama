@@ -41,23 +41,28 @@ Done.
 
 ## What You Get
 
-### Four Dashboards
+### One Comprehensive Dashboard
 
-**Team Overview** - Org-level metrics. Commits over time, top contributors, velocity trends.
+**Repository Overview** - Everything you need in one place:
 
-**Repository Overview** - Project comparison. Which repos are hot, which are not, who's working where.
+- **Key Metrics** - Total commits, lines added/removed, unique contributors
+- **Contributor Statistics** - Per-person breakdown with commits, lines changed, and averages
+- **Repository Statistics** - Per-repo metrics showing activity and team size
+- **Time Series Charts** - Commit activity and code changes over time
+- **Contribution Calendar** - GitHub-style heatmap showing daily activity patterns
+- **Team Engagement** - Active contributors per period to track team growth
 
-**Personal Overview** - Individual impact. Commit history, lines changed, expertise areas.
+### Interactive Filtering
 
-**Contribution Calendar** - GitHub-style heatmap. Because everyone loves green squares.
-
-### Cross-Referenced Everything
+- **By Repository** - Focus on specific projects or compare multiple repos
+- **By Author** - Track individual or team contributions
+- **By Date Range** - Analyze any time period from days to years
 
 Click a person → see their repos.  
 Click a repo → see its contributors.  
-Click a date range → filter everything.
+Adjust time range → everything updates.
 
-The power is in the relationships.
+The power is in the cross-referencing.
 
 ---
 
@@ -694,29 +699,11 @@ elasticsearch:
   host: "localhost"
   port: 9200
   commit_index: "git-commits"
-  tag_index: "git-tags"
-  loc_index: "git-loc"
   bulk_batch_size: 1000
 
 # Parallelization
 parallelization:
   max_workers: null  # null = auto-detect CPU count, or set to 1-8
-
-# Tags (optional)
-tags:
-  enabled: true
-  patterns:  # track version tags
-    - pattern: "^v?\\d+\\.\\d+\\.\\d+$"
-      description: "Semantic versioning"
-
-# Metrics (optional)
-metrics:
-  commits:
-    enabled: true
-  lines:
-    enabled: true
-  loc:
-    enabled: true  # aggregate lines-of-code over time
 ```
 
 **Full reference**: See `config.yaml.sample` for all 300+ lines with detailed comments and examples.
@@ -771,8 +758,8 @@ A: Works fine. You might want custom file exclusions for generated code. Use `re
 **Q: Can I analyze repos without cloning them?**  
 A: No. The tool needs local git history to analyze commits. But cloning is automatic via `./run.sh` if you list repos in `repository_urls`.
 
-**Q: What's the difference between the commit and LOC indices?**  
-A: `git-commits` stores individual commit data (who, when, what changed). `git-loc` (if enabled) stores aggregate lines-of-code metrics over time. Most dashboards use `git-commits`.
+**Q: What data is stored in Elasticsearch?**  
+A: All data is stored in the `git-commits` index. Each document represents a single commit with metadata including author, timestamp, repository, files changed, and lines added/removed. The dashboard aggregates this data to show trends and statistics.
 
 **Q: Does this track who wrote what lines currently in the codebase?**  
 A: No. This tracks commit history (who changed what, when). For current code ownership, use `git blame` or tools like GitHub's code owners.
@@ -924,11 +911,11 @@ docker compose logs grafana | grep -i error
    crontab -e
    ```
 
-5. **Explore dashboards** - Discover insights
-   - Team Overview: Who's most active? What's the commit trend?
-   - Repository Overview: Which repos are maintained? Which are stale?
-   - Personal Overview: Individual contributions and expertise areas
-   - Contribution Calendar: Activity patterns over time
+5. **Explore the dashboard** - Discover insights
+   - Who's most active? Use contributor statistics and filters
+   - Which repos are maintained vs stale? Check repository statistics
+   - What are the commit trends? Review time series charts
+   - When do people contribute? Examine the contribution calendar
 
 6. **Share insights** - Use in team meetings
    - Sprint retrospectives: "Where did we spend time?"
