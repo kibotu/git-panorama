@@ -1,7 +1,6 @@
 # Git Panorama
 
 [![CI](https://github.com/kibotu/git-panorama/actions/workflows/ci.yml/badge.svg)](https://github.com/kibotu/git-panorama/actions/workflows/ci.yml)
-[![Quick Check](https://github.com/kibotu/git-panorama/actions/workflows/quick-check.yml/badge.svg)](https://github.com/kibotu/git-panorama/actions/workflows/quick-check.yml)
 
 > Who's shipping? What's shipping? Where's the effort going?
 
