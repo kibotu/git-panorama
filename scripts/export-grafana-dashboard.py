@@ -355,8 +355,8 @@ def main():
     )
     parser.add_argument(
         "--dashboard-uid",
-        default="git-repository-overview",
-        help="Dashboard UID to export (default: git-repository-overview)",
+        default="git-stats-repository",
+        help="Dashboard UID to export (default: git-stats-repository)",
     )
     parser.add_argument(
         "--output-dir",

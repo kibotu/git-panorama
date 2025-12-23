@@ -155,7 +155,7 @@ jobs:
             --grafana-url http://localhost:3000 \
             --username admin \
             --password admin \
-            --dashboard-uid git-repository-overview \
+            --dashboard-uid git-stats-repository \
             --output-dir docs \
             --time-from "$TIME_RANGE" \
             --time-to now \
