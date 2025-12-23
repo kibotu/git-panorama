@@ -1,6 +1,9 @@
 # Git Panorama
 
 [![CI](https://github.com/kibotu/git-panorama/actions/workflows/ci.yml/badge.svg)](https://github.com/kibotu/git-panorama/actions/workflows/ci.yml)
+[![Deploy to GitHub Pages](https://github.com/kibotu/git-panorama/actions/workflows/deploy-gh-pages.yml/badge.svg)](https://github.com/kibotu/git-panorama/actions/workflows/deploy-gh-pages.yml)
+[![Elasticsearch](https://img.shields.io/badge/Elasticsearch-8.17.0-005571?logo=elasticsearch&logoColor=white)](https://www.elastic.co/downloads/elasticsearch)
+[![Grafana](https://img.shields.io/badge/Grafana-latest-F46800?logo=grafana&logoColor=white)](https://grafana.com/grafana/download)
 
 > Who's shipping? What's shipping? Where's the effort going?
 
