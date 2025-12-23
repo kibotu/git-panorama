@@ -8,10 +8,6 @@ logs/
 git-stats/
 *.csv
 
-# Generated dashboard exports (for GitHub Pages)
-docs/
-!docs/DASHBOARD_EXPORT.md
-
 # Storage directories
 storage/elasticsearch/*
 storage/log/*

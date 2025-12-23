@@ -43,6 +43,8 @@ Done.
 
 ## What You Get
 
+![Git Panorama Dashboard](docs/screenshot.png)
+
 ### One Comprehensive Dashboard
 
 **Repository Overview** - Everything you need in one place:
